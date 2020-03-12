@@ -19,3 +19,6 @@ Route::get('/', function () {
 });
 
 Route::get('/livros', 'Livro@livros');
+
+
+Route::resource('funcionarios', 'Funcionario');
