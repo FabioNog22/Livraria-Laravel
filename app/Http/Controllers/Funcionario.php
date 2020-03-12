@@ -64,7 +64,9 @@ class Funcionario extends Controller
      */
     public function show($id)
     {
-        //
+        $funcionarios = session('funcionarios');
+        $funcionarios = $funcionarios[$id - 1];
+        return view('funcionarios.info',compact(['funcionarios']));
     }
 
     /**
