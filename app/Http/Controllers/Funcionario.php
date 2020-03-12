@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 
 class Funcionario extends Controller
 {
+    private $funcionarios = [
+        ['id' => 1,'nome'=>'Aquarela'],
+        ['id' => 2,'nome'=>'Aquarela do Brasil'],
+        ['id' => 3,'nome'=>'Aquarela da Africa']
+    ];
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +18,11 @@ class Funcionario extends Controller
      */
     public function index()
     {
-        echo "Lista dos Funcionarios";
+        echo "<ol>";
+        foreach($this->funcionarios as $f){
+            echo "<li>".$f['nome']."</li>";
+        }
+        echo "</ol>";
     }
 
     /**
