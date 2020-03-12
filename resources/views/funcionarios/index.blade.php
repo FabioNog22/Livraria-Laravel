@@ -3,6 +3,7 @@
 <ol>
     @foreach ($funcionarios as $f)
         <li>{{$f['func_nome']}}  <a href="{{route('funcionarios.edit',$f['id'])}}">Editar</a></li>        
+        <li>{{$f['func_nome']}}  <a href="{{route('funcionarios.show',$f['id'])}}">Info</a></li>        
         <br>
     @endforeach
 </ol>
