@@ -7,9 +7,9 @@ use Illuminate\Http\Request;
 class Funcionario extends Controller
 {
     private $funcionarios = [
-        ['id' => 1,'nome'=>'Aquarela'],
-        ['id' => 2,'nome'=>'Aquarela do Brasil'],
-        ['id' => 3,'nome'=>'Aquarela da India']
+        ['id' => 1,'func_nome'=>'Aquarela'],
+        ['id' => 2,'func_nome'=>'Aquarela do Brasil'],
+        ['id' => 3,'func_nome'=>'Aquarela da India']
     ];
     /**
      * Display a listing of the resource.
@@ -29,7 +29,7 @@ class Funcionario extends Controller
      */
     public function create()
     {
-        //
+        return view('funcionarios.create');
     }
 
     /**
@@ -40,7 +40,12 @@ class Funcionario extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $id = count($this->funcionarios) + 1;
+        $nome = $request->func_nome;
+        $dados = ["id" =>$id,"func_nome" => $nome];
+        $this->funcionarios[] = $dados;
+        dd($this->funcionarios);
+        return redirect()->route('funcionarios.index');
     }
 
     /**
