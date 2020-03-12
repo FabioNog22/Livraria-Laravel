@@ -9,7 +9,7 @@ class Funcionario extends Controller
     private $funcionarios = [
         ['id' => 1,'nome'=>'Aquarela'],
         ['id' => 2,'nome'=>'Aquarela do Brasil'],
-        ['id' => 3,'nome'=>'Aquarela da Africa']
+        ['id' => 3,'nome'=>'Aquarela da India']
     ];
     /**
      * Display a listing of the resource.
