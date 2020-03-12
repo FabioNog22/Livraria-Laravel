@@ -18,11 +18,8 @@ class Funcionario extends Controller
      */
     public function index()
     {
-        echo "<ol>";
-        foreach($this->funcionarios as $f){
-            echo "<li>".$f['nome']."</li>";
-        }
-        echo "</ol>";
+        $funcionarios = $this->funcionarios;
+        return view('funcionarios.index',compact(['funcionarios']));
     }
 
     /**
