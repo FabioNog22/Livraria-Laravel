@@ -11,6 +11,13 @@ class Funcionario extends Controller
         ['id' => 2,'func_nome'=>'Aquarela do Brasil'],
         ['id' => 3,'func_nome'=>'Aquarela da India']
     ];
+
+    public function __construct()
+    {
+        $funcionarios = session('funcionarios');
+        if(!isset($funcionarios))
+            session(['funcionarios' => $this->funcionarios]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -18,7 +25,7 @@ class Funcionario extends Controller
      */
     public function index()
     {
-        $funcionarios = $this->funcionarios;
+        $funcionarios = session('funcionarios');
         return view('funcionarios.index',compact(['funcionarios']));
     }
 
@@ -40,11 +47,12 @@ class Funcionario extends Controller
      */
     public function store(Request $request)
     {
-        $id = count($this->funcionarios) + 1;
+        $funcionarios = session('funcionarios');
+        $id = count($funcionarios) + 1;
         $nome = $request->func_nome;
         $dados = ["id" =>$id,"func_nome" => $nome];
-        $this->funcionarios[] = $dados;
-        dd($this->funcionarios);
+        $funcionarios[] = $dados;
+        session(['funcionarios' => $funcionarios]);
         return redirect()->route('funcionarios.index');
     }
 
