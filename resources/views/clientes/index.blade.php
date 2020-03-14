@@ -4,6 +4,8 @@
 
 <ol>
     @foreach ($clientes as $c)
-        <li>{{$c['cliente_nome']}} | <a href="{{route('clientes.edit',$c['id'])}}">Editar</a></li> 
+        <li>{{$c['cliente_nome']}} | 
+            <a href="{{route('clientes.edit',$c['id'])}}">Editar</a></li> | 
+            <a href="{{route('clientes.show',$c['id'])}}">Info</a>
     @endforeach
 </ol>
