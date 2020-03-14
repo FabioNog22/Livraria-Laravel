@@ -22,3 +22,4 @@ Route::get('/livros', 'Livro@livros');
 
 
 Route::resource('funcionarios', 'Funcionario');
+Route::resource('clientes', 'Cliente');
