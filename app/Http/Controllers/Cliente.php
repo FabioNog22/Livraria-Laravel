@@ -30,7 +30,7 @@ class Cliente extends Controller
      */
     public function create()
     {
-        //
+        return view('clientes.create');
     }
 
     /**
@@ -41,7 +41,8 @@ class Cliente extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $dado = $request->all();
+        dd($dado);
     }
 
     /**
